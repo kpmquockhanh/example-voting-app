@@ -26,6 +26,6 @@ jobs:
           script: cd ~/vote && docker-compose down && docker-compose up -d
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
-          privateKey: ${{ secrets.DEPLOY_KEY }}
+          key: ${{ secrets.DEPLOY_KEY }}
 
         
