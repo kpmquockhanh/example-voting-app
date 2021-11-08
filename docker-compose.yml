@@ -9,11 +9,11 @@ services:
     command: python app.py
     depends_on:
       redis:
-        condition: service_healthy 
+        condition: service_healthy
     volumes:
      - ./vote:/app
     ports:
-      - "5000:80"
+      - "5002:80"
     networks:
       - front-tier
       - back-tier
@@ -24,7 +24,7 @@ services:
     command: nodemon server.js
     depends_on:
       db:
-        condition: service_healthy 
+        condition: service_healthy
     volumes:
       - ./result:/app
     ports:
@@ -39,9 +39,9 @@ services:
       context: ./worker
     depends_on:
       redis:
-        condition: service_healthy 
+        condition: service_healthy
       db:
-        condition: service_healthy 
+        condition: service_healthy
     networks:
       - back-tier
 
