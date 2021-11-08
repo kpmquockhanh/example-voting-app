@@ -23,7 +23,7 @@ jobs:
       - name: Run SSH docker command
         uses: appleboy/ssh-action@v0.1.4
         with:
-          script: cd ~/vote && docker-compose down && docker-compose up -d
+          script: cd ~/vote && docker-compose down && docker-compose -f docker-compose.prod.yml up -d
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
